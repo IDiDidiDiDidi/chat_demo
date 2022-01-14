@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liudi.mapper.UserMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.liudi.entity.SysUser">
+        <id column="base_id" property="baseId"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="nickname" property="nickname"/>
+        <result column="email" property="email"/>
+        <result column="realname" property="realname"/>
+        <result column="gender" property="gender"/>
+        <result column="birthday" property="birthday"/>
+        <result column="country" property="country"/>
+        <result column="province" property="province"/>
+        <result column="city" property="city"/>
+        <result column="region" property="region"/>
+        <result column="address" property="address"/>
+        <result column="telephone" property="telephone"/>
+        <result column="mobile" property="mobile"/>
+        <result column="site" property="site"/>
+        <result column="postal_code" property="postalCode"/>
+        <result column="theme" property="theme"/>
+        <result column="note_word" property="noteWord"/>
+        <result column="role" property="role"/>
+        <result column="auth" property="auth"/>
+        <result column="belong_id" property="belongId"/>
+        <result column="user_header" property="userHeader"/>
+        <result column="status" property="status"/>
+        <result column="header_photo" property="headerPhoto"/>
+        <result column="sub_user" property="subUser"/>
+        <result column="province_id" property="provinceId"/>
+        <result column="city_id" property="cityId"/>
+        <result column="region_id" property="regionId"/>
+        <result column="authorize_step" property="authorizeStep"/>
+        <result column="auth_opinion" property="authOpinion"/>
+        <result column="credit_code" property="creditCode"/>
+        <result column="is_certificate_ready" property="isCertificateReady"/>
+        <result column="code_corporate" property="codeCorporate"/>
+        <result column="logo" property="logo"/>
+        <result column="source" property="source"/>
+        <result column="cas_user_id" property="casUserId"/>
+        <result column="parent_cas_user_id" property="parentCasUserId"/>
+        <result column="company_id" property="companyId"/>
+        <result column="creator" property="creator"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="base_create_time" property="baseCreateTime"/>
+        <result column="base_update_time" property="baseUpdateTime"/>
+        <result column="system_id" property="systemId"/>
+        <result column="dept_id" property="deptId"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        base_id, username, password, nickname, email, realname, gender, birthday, country,
+        province, city, region, address, telephone, mobile, site, postal_code, theme,
+         note_word,  role, auth, belong_id, user_header, status, header_photo,
+         sub_user, province_id, city_id, region_id, authorize_step, auth_opinion, credit_code,
+         is_certificate_ready, code_corporate, logo, source, cas_user_id, parent_cas_user_id,
+         company_id, creator, update_by, base_create_time, base_update_time ,system_id ,dept_id
+    </sql>
+    <select id="getLiveUser" resultType="com.liudi.entity.SysUser">
+        select <include refid="Base_Column_List"/>
+        from sys_user
+        limit 0, 5
+    </select>
+
+
+</mapper>

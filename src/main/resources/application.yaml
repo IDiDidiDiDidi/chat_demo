@@ -1,0 +1,61 @@
+server:
+  port: 18011
+spring:
+  #  elasticsearch:
+  #    rest:
+  #      uris: http://localhost:8183
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    url: jdbc:mysql://39.96.72.22:3306/smart_search_application_test?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&serverTimezone=GMT%2B8
+    #    url: jdbc:mysql://localhost:3306/smart_search_application_test?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&serverTimezone=GMT%2B8
+    #    username: root
+    #    password: 123456
+    url: jdbc:mysql://rm-bp1w02d37f7999oqw5o.mysql.rds.aliyuncs.com:3306/zhenghe?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&serverTimezone=GMT%2B8
+    username: liudi123
+    password: '@Aliudi123'
+    initial-size: 10
+    max-active: 100
+    min-idle: 10
+    max-wait: 60000
+    pool-prepared-statements: true
+    max-pool-prepared-statement-per-connection-size: 20
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    test-while-idle: true
+    test-on-borrow: false
+    test-on-return: false
+    druid:
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: admin
+        login-password: admin
+
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 20000
+    database: 0
+    password: fsspass20160311notforget
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    com.liudi: DEBUG
+    io.swagger.models.parameters.AbstractSerializableParameter: error
+
+
+task:
+  queue:
+    corePoolSize: 10
+    maxPoolSize: 30
+    queueCapacity: 8
+    keepAlive: 60
+
+swagger:
+  scan:
+    basePackage: com.liudi.controller
+    apiTitle: 后台
